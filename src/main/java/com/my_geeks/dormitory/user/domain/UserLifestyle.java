@@ -16,12 +16,13 @@ import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Persistable;
 
 @Getter
 @Entity
 @Table(name = "user_lifestyles")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserLifestyle extends BaseEntity {
+public class UserLifestyle extends BaseEntity implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -52,4 +53,9 @@ public class UserLifestyle extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private Personality personality;
+
+    @Override
+    public boolean isNew() {
+        return getCreatedAt() == null;
+    }
 }

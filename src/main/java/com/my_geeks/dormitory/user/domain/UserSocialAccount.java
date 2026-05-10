@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Persistable;
 
 @Getter
 @Entity
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
         )
 )
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserSocialAccount extends BaseEntity {
+public class UserSocialAccount extends BaseEntity implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -47,4 +48,9 @@ public class UserSocialAccount extends BaseEntity {
 
     @Column(name = "token_expires_at")
     private LocalDateTime tokenExpiresAt;
+
+    @Override
+    public boolean isNew() {
+        return getCreatedAt() == null;
+    }
 }

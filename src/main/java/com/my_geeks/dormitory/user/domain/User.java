@@ -12,12 +12,13 @@ import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Persistable;
 
 @Getter
 @Entity
 @Table(name = "users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User extends BaseEntity {
+public class User extends BaseEntity implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -47,4 +48,9 @@ public class User extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String introduction;
+
+    @Override
+    public boolean isNew() {
+        return getCreatedAt() == null;
+    }
 }
