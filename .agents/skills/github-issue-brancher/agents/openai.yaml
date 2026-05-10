@@ -1,0 +1,10 @@
+interface:
+  display_name: "GitHub Issue Brancher"
+  short_description: "GitHub 이슈 번호 기준 작업 브랜치 생성"
+  default_prompt: "Use $github-issue-brancher to create a branch for this GitHub issue."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "github"
+      description: "GitHub connector for fetching repository issues"
