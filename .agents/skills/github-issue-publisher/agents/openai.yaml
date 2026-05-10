@@ -1,0 +1,10 @@
+interface:
+  display_name: "GitHub Issue Publisher"
+  short_description: "작업 요청을 GitHub 이슈로 분리하고 발행"
+  default_prompt: "Use $github-issue-publisher to split this work request into GitHub issues and publish them."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "github"
+      description: "GitHub connector for creating repository issues"
