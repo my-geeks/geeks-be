@@ -43,11 +43,14 @@ public class User extends BaseEntity implements Persistable<Long> {
     @Column(length = 10)
     private Gender gender;
 
-    @Column(name = "phone_number", length = 20)
-    private String phoneNumber;
+    @Column(name = "student_number")
+    private int studentNumber;
 
     @Column(columnDefinition = "TEXT")
     private String introduction;
+
+    @Column(name = "department_id")
+    private Long departmentId;
 
     @Override
     public boolean isNew() {
