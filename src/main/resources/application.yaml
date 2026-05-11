@@ -1,3 +1,7 @@
 spring:
   application:
     name: dormitory
+
+  web:
+    resources:
+      add-mappings: false
