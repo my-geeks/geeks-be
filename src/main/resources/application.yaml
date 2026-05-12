@@ -1,7 +1,42 @@
 spring:
   application:
-    name: dormitory
+    name: geeks
+  profiles:
+    active: ${ACTIVE_PROFILE:local}
 
+  jackson:
+    time-zone: Asia/Seoul
+
+---
+
+spring:
   web:
     resources:
       add-mappings: false
+
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/geeks?serverTimezone=Asia/Seoul&connectionTimeZone=Asia/Seoul}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        jdbc:
+          batch_size: 100
+          time_zone: Asia/Seoul
+    defer-datasource-initialization: true
+    open-in-view: false
+
+  output:
+    ansi:
+      enabled: ALWAYS
