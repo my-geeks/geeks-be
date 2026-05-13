@@ -1,6 +1,7 @@
 package com.my_geeks.dormitory.user.domain;
 
 import com.my_geeks.dormitory.common.domain.BaseEntity;
+import com.my_geeks.dormitory.common.util.snowflake.SnowflakeId;
 import com.my_geeks.dormitory.user.domain.enums.ActivityTime;
 import com.my_geeks.dormitory.user.domain.enums.CleaningStyle;
 import com.my_geeks.dormitory.user.domain.enums.Personality;
@@ -25,6 +26,7 @@ import org.springframework.data.domain.Persistable;
 public class UserLifestyle extends BaseEntity implements Persistable<Long> {
 
     @Id
+    @SnowflakeId
     private Long id;
 
     @Column(name = "user_id", nullable = false, unique = true)

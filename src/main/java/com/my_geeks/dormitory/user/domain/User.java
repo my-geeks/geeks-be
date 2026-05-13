@@ -1,6 +1,7 @@
 package com.my_geeks.dormitory.user.domain;
 
 import com.my_geeks.dormitory.common.domain.BaseEntity;
+import com.my_geeks.dormitory.common.util.snowflake.SnowflakeId;
 import com.my_geeks.dormitory.user.domain.enums.Gender;
 import com.my_geeks.dormitory.user.domain.enums.UserStatus;
 import jakarta.persistence.Column;
@@ -21,6 +22,7 @@ import org.springframework.data.domain.Persistable;
 public class User extends BaseEntity implements Persistable<Long> {
 
     @Id
+    @SnowflakeId
     private Long id;
 
     @Column(nullable = false, unique = true, length = 255)
