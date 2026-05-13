@@ -1,4 +1,4 @@
-package com.my_geeks.dormitory.common.util;
+package com.my_geeks.dormitory.common.util.snowflake;
 
 import org.springframework.stereotype.Component;
 
@@ -6,9 +6,6 @@ import java.net.NetworkInterface;
 import java.security.SecureRandom;
 import java.time.Instant;
 import java.util.Enumeration;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.random.RandomGenerator;
 
 /**
  * Snowflake 알고리즘 기반 분산 ID 생성기
